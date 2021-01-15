@@ -1,0 +1,8 @@
+.multiple-select {
+  width: 100%;
+  text-align: left;
+}
+
+.multiple-select__selector {
+  width: inherit;
+}
