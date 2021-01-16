@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'dotenv/config';
+import React from "react";
+import ReactDOM from "react-dom";
+import "dotenv/config";
 
-import './index.css';
-import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import "./index.css";
+import { MainPage } from "./pages";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MainPage />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
