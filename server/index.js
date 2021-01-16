@@ -1,8 +1,8 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 const port = process.env.PORT || 5000;
 
@@ -14,17 +14,21 @@ app.get("/-/ping", async (req, res) => {
 
 app.get("/-/search", async (req, res) => {
   try {
-    const urlParams = new URLSearchParams({ ...req.query });
-    const resp = await fetch(`https://api.yelp.com/v3/businesses/search?${urlParams}`, {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${process.env.YELP_API_KEY}`
+    const urlParams = new URLSearchParams(req.query);
+    const resp = await fetch(
+      `https://api.yelp.com/v3/businesses/search?${urlParams}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.YELP_API_KEY}`
+        }
       }
-    });
+    );
     const data = await resp.json();
 
     res.status(200).send(data);
   } catch (e) {
+    res.send(400).send({ message: "ERROR: " + e });
     console.log("ERROR: ", e);
   }
 });
