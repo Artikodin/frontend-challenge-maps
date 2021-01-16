@@ -1,14 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import './Header.css';
+import "./Header.css";
 
-function Header() {
-	return (
-		<header className="header">
-			<img src="/favicon.png" alt="logo"/>
-			<h1>Yelp Vimcar</h1>
-		</header>
-	);
-}
+/**
+ * Header
+ *
+ * Website header with company brand and logo
+ *
+ * @return {jsx}
+ */
+const Header = () => (
+  <header className="header">
+    <img src="/favicon.png" alt="logo" />
+    <h1>Yelp Vimcar</h1>
+  </header>
+);
 
 export default Header;
