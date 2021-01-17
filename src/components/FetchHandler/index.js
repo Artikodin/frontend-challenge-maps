@@ -20,7 +20,7 @@ const FetchHandler = ({ error, loading, children }) => {
   if (loading)
     return (
       <div className="spinner-container">
-        <Spin />
+        <Spin data-testid="spin" />
       </div>
     );
 
