@@ -73,3 +73,31 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Development Note
+
+This note reflects on the coding process taken to complete the exercise. You are not required to read this development note in order to review the code, however it will take you through the process.
+
+### Reorganise component
+
+First, it was necessary to reorganise the code base, as all code structure was embedded in one `Main` component. Therefore I split it into separate components improving their reusability . The code is nested in a `MainPage` in case the application grows and a routing system needs to be implemented.
+
+### Filter categories
+
+One of the key points of this exercise was to choose a proper UI to filter a restaurant list by categories. With this in mind, I chose the Select component from Ant Design for 3 main reasons:
+
+- It has a search bar. At the moment, it is not relevant but if the application grows and all Yelp categories are implemented, it will be a better experience for the user.
+- It allows multiple selection. This is in case a future feature enables filtering on multiple categories.
+- It has a light UI which integrates in a seamless way to the actual design.
+
+### Fetch data
+
+I reorganised data fetching into the custom hook `useFetchRestaurants`. This way restaurant’s data can be fetched from any component in the app. This hook also persists data in session storage to minimise API calls. Currently the session storage is used to prevent issues if data structure is updated. Local storage can be used too but a solution to clear it in case of data update needs to be implemented.
+
+### State management
+
+For the moment, the application domain model is not big enough to use a state manager. States are handled directly in the `MainPage` component. As a result, it will be useful to use a state manager, in case the application grows and the data updates in different components.
+
+## Questions
+
+If you have any question about this test don't hesitate to contact me directly: artium.wasse@gmail.com
